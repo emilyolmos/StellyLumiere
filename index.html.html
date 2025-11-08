@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stelly Lumière Paris</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ========================================= */
+/*               BASE & GENERAL              */
+/* ========================================= */
+body {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffaf6; /* Fondo Crema Elegante */
+    color: #3a2e2e;
+    text-align: center;
+}
+
+/* CLASES CRUCIALES PARA EL COMPORTAMIENTO DESEADO */
+.section {
+    padding: 0 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hidden { 
+    display: none !important; /* IMPORTANTE: Asegura que la sección se oculte */
+}
+/* ------------------------------------------------- */
+
+/* ========================================= */
+/*                 HEADER                  */
+/* ========================================= */
+header {
+    background-color: #f8f6f3;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* LOGO */
+.logo-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 12px;
+}
+
+.logo-symbol {
+    height: 100px; /* Tamaño ajustado para el header */
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+.logo-symbol:hover {
+    transform: scale(1.05);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-text h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    color: #b08d57; /* Dorado */
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 3px;
+    align-self: center;
+    color: #a47d4f;
+}
+
+/* Navegación y Controles */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+nav a {
+    color: #b08d57;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: #8b6e42;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f8f6f3;
+    min-width: 180px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    z-index: 1001;
+    text-align: left;
+}
+
+.dropdown-content a {
+    color: #b08d57;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0e6d6;
+    color: #8b6e42;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+    padding: 7px 10px;
+    border: 1px solid #d5c6b1;
+    border-radius: 25px;
+    font-size: 15px;
+    outline: none;
+    width: 180px;
+}
+
+.search-bar:focus {
+    border-color: #b08d57;
+}
+
+/* Íconos */
+.icon {
+    font-size: 22px;
+    color: #b08d57;
+    cursor: pointer;
+    margin-left: 12px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.icon:hover {
+    color: #8b6e42;
+    transform: scale(1.1);
+}
+
+/* ========================================= */
+/*                 CARRUSEL                 */
+/* ========================================= */
+.carousel-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden; 
+    margin-bottom: 40px;
+}
+
+.carousel-slide {
+    display: none; 
+    text-align: center;
+    position: relative; 
+    height: 600px; 
+}
+
+.carousel-img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover; 
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3); 
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+.carousel-caption h2 {
+    font-size: 52px;
+    margin-bottom: 15px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 3px;
+}
+
+.carousel-caption p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.shop-now-btn {
+    background-color: #b08d57;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 25px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.shop-now-btn:hover {
+    background-color: white;
+    color: #b08d57;
+    border-color: #b08d57;
+}
+
+/* Controles de Clic/Toque (Invisibles) */
+.control-left, .control-right {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 25%; 
+    cursor: pointer;
+    z-index: 800; 
+    transition: background-color 0.3s ease;
+}
+
+.control-left { left: 0; }
+.control-right { right: 0; }
+
+.control-left:hover, .control-right:hover {
+    background-color: rgba(0, 0, 0, 0.05); 
+}
+
+/* Puntos de navegación */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #b08d57; /* Dorado */
+}
+
+/* Animación */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+/* ========================================= */
+/*           PRODUCTOS & SECCIONES           */
+/* ========================================= */
+.featured-section {
+    padding: 20px 0;
+}
+
+.featured-section h3 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #b08d57;
+    font-family: 'Cinzel', serif;
+}
+
+.section h1 {
+    font-size: 36px;
+    color: #5a4a3f;
+    margin-bottom: 30px;
+    font-family: 'Cinzel', serif;
+}
+
+/* Contenedor de productos */
+.container {
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; 
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 4px 15px rgba(0,0,0,0.1);
+    width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px); 
+    box-shadow: 4px 8px 20px rgba(0,0,0,0.15);
+}
+
+.product img {
+    width: 160px;
+    height: auto;
+    max-height: 160px; 
+}
+
+.product h2 {
+    font-size: 20px;
+    color: #5a4a3f;
+    margin: 10px 0 5px;
+}
+
+.product p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #b08d57;
+    margin: 5px 0 10px;
+    font-family: 'Cinzel', serif;
+}
+
+.info-button {
+    background-color: #b08d57;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-family: 'Cinzel', serif;
+    transition: background-color 0.3s ease;
+}
+
+.info-button:hover {
+    background-color: #8b6e42;
+}
+
+/* ========================================= */
+/*                 MODALES                 */
+/* ========================================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fffaf6;
+    margin: 8% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+    color: #b08d57;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    color: #5a4a3f;
+    line-height: 1.6;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.modal-content input, .modal-content select, .modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #d5c6b1;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #b08d57;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: 'Cinzel', serif;
+}
+
+.modal-content button:hover {
+    background-color: #8b6e42;
+}
+
+.close-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+    color: #a47d4f;
+}
+
+/* Redes sociales */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #b08d57;
+    font-size: 28px;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #8b6e42;
+    transform: scale(1.1);
+}
+
+/* Carrito */
+.cart-item {
+    border-bottom: 1px solid #d5c6b1;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-item button {
+    width: 30px;
+    padding: 5px;
+    margin: 0;
+    background: none;
+    border: none;
+    color: #a47d4f;
+    font-size: 14px;
+}
+
+/* ========================================= */
+/*                 FOOTER                  */
+/* ========================================= */
+footer {
+    background-color: #f0e6d6; /* Tono más oscuro de tu crema */
+    padding: 30px 20px 10px;
+    color: #5a4a3f;
+    text-align: center;
+    border-top: 1px solid #d5c6b1;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto 20px;
+    text-align: left;
+}
+
+.footer-section {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: #b08d57;
+    margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section a {
+    font-size: 14px;
+    color: #5a4a3f;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #b08d57;
+}
+
+.copyright p {
+    font-size: 12px;
+    margin-top: 20px;
+    border-top: 1px solid #d5c6b1;
+    padding-top: 10px;
+}
+
+/* Íconos de usuario y carrito */
+.icons-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 10px;
+}
+
+.icon {
+  font-size: 22px;
+  color: #b08d57; /* mismo tono dorado que el texto */
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  color: #8b6e42; /* tono más oscuro al pasar el mouse */
+}
+
+/* Contenedor derecho del header */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto; /* Empuja todo hacia la derecha */
+}
+
+/* Íconos de usuario y carrito */
+.icons-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ajuste para mantener buena alineación */
+.search-bar {
+  order: 3; /* Asegura que quede al final */
+}
+
+
+</style>
+
+
+<script>
+let cart = [];
+let slideIndex = 1;
+
+// 🔹 Muestra una sección y oculta el resto
+function showCategory(cat) {
+  document.querySelectorAll(".section").forEach(s => s.classList.add("hidden"));
+  document.getElementById(cat).classList.remove("hidden");
+}
+
+// 🔹 Muestra solo la sección HOME
+function goHome() {
+  document.querySelectorAll(".section").forEach(s => s.classList.add("hidden"));
+  document.getElementById("home").classList.remove("hidden");
+  document.querySelector(".carousel-container")?.classList.remove("hidden");
+  document.querySelector(".featured-section")?.classList.remove("hidden");
+}
+
+// --- 🔹 Lógica de búsqueda funcional ---
+function runSearch() {
+  const searchInput = document.getElementById("searchBar");
+  if (!searchInput) return;
+
+  const input = searchInput.value.toLowerCase().trim();
+  const products = document.querySelectorAll(".product");
+  let found = false;
+
+  if (input === "") {
+    goHome();
+    document.querySelectorAll(".product").forEach(p => p.style.display = "block");
+    return;
+  }
+
+  // Oculta todas las secciones
+  document.querySelectorAll(".section").forEach(s => s.classList.add("hidden"));
+
+  // Muestra sección principal de resultados (home)
+  const home = document.getElementById("home");
+  if (home) home.classList.remove("hidden");
+
+  // Oculta carrusel y destacados
+  document.querySelector(".carousel-container")?.classList.add("hidden");
+  document.querySelector(".featured-section")?.classList.add("hidden");
+
+  // Crea contenedor de resultados si no existe
+  let resultsSection = document.getElementById("searchResults");
+  if (!resultsSection) {
+    resultsSection = document.createElement("div");
+    resultsSection.id = "searchResults";
+    resultsSection.classList.add("container");
+    home.appendChild(resultsSection);
+  }
+  resultsSection.innerHTML = "";
+
+  // Filtra productos
+  products.forEach(product => {
+    const name = product.querySelector("h2")?.innerText.toLowerCase() || "";
+    const categoria = product.dataset.categoria?.toLowerCase() || "";
+
+    if (name.includes(input) || categoria.includes(input)) {
+      found = true;
+      resultsSection.appendChild(product.cloneNode(true));
+    }
+  });
+
+  if (!found) {
+    resultsSection.innerHTML = `<p style="color:#b08d57;font-family:'Cinzel',serif;">No se encontraron resultados para "<strong>${input}</strong>".</p>`;
+  }
+}
+
+// Detectar Enter en la barra de búsqueda
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchBar");
+  if (searchInput) {
+    searchInput.addEventListener("keypress", event => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        runSearch();
+      }
+    });
+  }
+});
+
+// --- 🔹 Modales ---
+function openLogin() { document.getElementById("loginModal").style.display = "block"; }
+function closeLogin() { document.getElementById("loginModal").style.display = "none"; }
+function openContact() { document.getElementById("contactModal").style.display = "block"; }
+function closeContact() { document.getElementById("contactModal").style.display = "none"; }
+function openAbout() { document.getElementById("aboutModal").style.display = "block"; }
+function closeAbout() { document.getElementById("aboutModal").style.display = "none"; }
+
+// --- 🔹 Carrito funcional ---
+function openCart() {
+  const cartModal = document.getElementById("cartModal");
+  const cartItems = document.getElementById("cartItems");
+  cartItems.innerHTML = "";
+  if (cart.length === 0) {
+    cartItems.innerHTML = "<p>Tu carrito está vacío.</p>";
+  } else {
+    cart.forEach((item, i) => {
+      cartItems.innerHTML += `
+        <div class='cart-item'>
+          <strong>${item.name}</strong> - $${item.price}
+          <button onclick="removeFromCart(${i})">❌</button>
+        </div>`;
+    });
+  }
+  cartModal.style.display = "block";
+}
+function closeCart() { document.getElementById("cartModal").style.display = "none"; }
+function addToCart(name, price) {
+  cart.push({ name, price });
+  alert(name + " se agregó al carrito 🛍️");
+}
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  openCart();
+}
+function openCheckout() { 
+  if (cart.length === 0) {
+    alert("Tu carrito está vacío. Agrega productos para comprar.");
+    return;
+  }
+  document.getElementById("checkoutModal").style.display = "block"; 
+}
+function closeCheckout() { document.getElementById("checkoutModal").style.display = "none"; }
+function confirmPurchase() {
+  alert("¡Gracias por tu compra! ✨ Tu pedido será enviado pronto.");
+  cart = [];
+  closeCheckout();
+  closeCart();
+}
+
+// --- 🔹 Carrusel ---
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("carousel-slide");
+  let dots = document.getElementsByClassName("dot");
+
+  if (slides.length === 0) return;
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+function plusSlides(n) { showSlides(slideIndex += n); }
+function currentSlide(n) { showSlides(slideIndex = n); }
+function autoPlay() { setInterval(() => { plusSlides(1); }, 5000); }
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.getElementsByClassName("carousel-slide").length > 0) {
+    showSlides(slideIndex);
+    autoPlay();
+  }
+  goHome();
+});
+</script>
+
+
+
+
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo-container" onclick="goHome()">
+    <img src="logo/unnamed-removebg-preview.png"
+         alt="Stelly Lumière Logo Symbol" class="logo-symbol">
+    <div class="logo-text">
+      <h1>STELLY LUMIÈRE</h1>
+      <p>PARIS</p>
+    </div>
+  </div>
+
+  <div class="nav-container">
+    <nav>
+      <div class="dropdown">
+        <a>Colección ▾</a>
+        <div class="dropdown-content">
+          <a onclick="showCategory('pulseras')">Pulseras</a>
+          <a onclick="showCategory('aretes')">Aretes</a>
+          <a onclick="showCategory('collares')">Collares</a>
+          <a onclick="showCategory('anillos')">Anillos</a>
+          <a onclick="showCategory('dijes')">Dijes</a>
+        </div>
+      </div>
+      <a onclick="openAbout()">Conócenos</a>
+      <a onclick="openContact()">Contacto</a>
+    </nav>
+
+    <!-- 🔹 Íconos de usuario y carrito PRIMERO -->
+    <div class="icons-container">
+      <span class="icon" onclick="openLogin()">👤</span>
+      <span class="icon" onclick="openCart()">🛒</span>
+    </div>
+
+    <!-- 🔹 Luego la barra de búsqueda -->
+    <input 
+      type="text" 
+      id="searchBar" 
+      class="search-bar" 
+      placeholder="Buscar joyas, collares, anillos..." 
+      onkeypress="if(event.key === 'Enter'){ runSearch(); }">
+  </div>
+</header>
+
+
+<div id="home" class="section"> 
+    
+
+    <div class="carousel-container">
+    <div class="carousel-slide fade">
+      <img src="coleccion/carrusel joyas.png" class="carousel-img" alt="Joyas de Lujo">
+      <div class="carousel-caption">
+        <h2>El Brillo de París en tu Piel</h2>
+        <p>Descubre la nueva colección.</p>
+        <button class="shop-now-btn" onclick="showCategory('collares')">Ver Colección</button>
+      </div>
+    </div>
+    <div class="carousel-slide fade">
+      <img src="coleccion/imagen carrusel 3.jpg" class="carousel-img" alt="Anillo de compromiso">
+      <div class="carousel-caption">
+        <h2>Elegancia Atemporal</h2>
+        <p>Piezas únicas creadas con la pasión y dedicacion.</p>
+        <button class="shop-now-btn" onclick="showCategory('anillos')">Ver Anillos</button>
+      </div>
+    </div>
+    <div class="carousel-slide fade">
+      <img src="coleccion/final.png" class="carousel-img" alt="Aretes colgantes">
+      <div class="carousel-caption">
+        <h2>Lumière Brillante</h2>
+        <p>Joyas que capturan la luz de la Torre Eiffel.</p>
+        <button class="shop-now-btn" onclick="showCategory('aretes')">Ver Aretes</button>
+      </div>
+    </div>
+
+    <div class="control-left" onclick="plusSlides(-1)"></div>
+    <div class="control-right" onclick="plusSlides(1)"></div>
+
+    <div class="carousel-dots">
+      <span class="dot" onclick="currentSlide(1)"></span> 
+      <span class="dot" onclick="currentSlide(2)"></span> 
+      <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+<!-- SECCIÓN DE BIENVENIDA / PROPÓSITO DE LA MARCA -->
+<section id="about-brand" style="
+  background: linear-gradient(to bottom, #f8f6f3 0%, #fff 100%);
+  padding: 80px 20px;
+  text-align: center;
+  color: #3a2e2e;
+">
+  <h2 style="
+    font-family: 'Cinzel', serif;
+    color: #b08d57;
+    font-size: 36px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  ">
+    Bienvenida a Stelly Lumière Paris
+  </h2>
+
+  <p style="
+    max-width: 850px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+    font-family: 'Playfair Display', serif;
+  ">
+    En <strong>Stelly Lumière Paris</strong> creemos que la elegancia no solo se lleva puesta, sino que se transmite en cada detalle.  
+    Nacimos con la visión de ofrecer <em>joyas exclusivas</em> que reflejen la sofisticación y el encanto parisino.  
+    Cada una de nuestras piezas está inspirada en la luz, el arte y la feminidad moderna, combinando materiales de alta calidad con un diseño atemporal.
+  </p>
+
+  <p style="
+    max-width: 850px;
+    margin: auto;
+    margin-top: 25px;
+    font-size: 18px;
+    line-height: 1.8;
+    font-family: 'Playfair Display', serif;
+  ">
+    Nuestro propósito es acompañarte en cada momento especial con una joya que brille tanto como tú.  
+    Descubre nuestras colecciones y déjate envolver por la magia de <strong>Stelly Lumière Paris</strong>.
+  </p>
+
+  <button onclick="openAbout()" style="
+    display: inline-block;
+    background-color: #b08d57;
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-family: 'Cinzel', serif;
+    margin-top: 35px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  " 
+  onmouseover="this.style.backgroundColor='#a17f4f'"
+  onmouseout="this.style.backgroundColor='#b08d57'">
+    Conócenos
+  </button>
+</section>
+
+
+
+  </div>
+
+
+    <div class="featured-section">
+    <h3>Nuestros Favoritos</h3>
+    <div class="container">
+      <div class="product">
+        <img src="coleccion/silver pearl.png" alt="Collar de Perla en Plata">
+        <h2>Perla en Plata</h2>
+        <p>$1850</p>
+        <button class="info-button" onclick="addToCart('Collar de Perla en Plata', 1850)">Comprar</button>
+      </div>
+      <div class="product">
+        <img src="coleccion/luxury silver.png" alt="Anillo Plata chunky">
+        <h2>Plata chunky</h2>
+        <p>$1200</p>
+        <button class="info-button" onclick="addToCart('Anillo Plata chunky', 1200)">Comprar</button>
+      </div>
+      <div class="product">
+        <img src="coleccion/perlas en oro.png" alt="Pulsera con Perla Dorada">
+        <h2>Perla Dorada</h2>
+        <p>$950</p>
+        <button class="info-button" onclick="addToCart('Pulsera con Perla Dorada', 950)">Comprar</button>
+      </div>
+    </div>
+  </div>
+
+</div> <div id="pulseras" class="section hidden">
+  <h1>Pulseras</h1>
+  <div class="container">
+    <div class="product" data-categoria="pulsera">
+      <img src="coleccion/amor eterno.png" alt="Pulsera de amor eterno">
+      <h2>Eternidad</h2>
+      <p>$950</p>
+      <button class="info-button" onclick="addToCart('Pulsera de amor eterno', 950)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product" data-categoria="pulsera">
+      <img src="coleccion/corazon oro.png" alt="Pulsera corazon de oro">
+      <h2> Corazon de Oro</h2>
+      <p>$1500</p>
+      <button class="info-button" onclick="addToCart('Pulsera corazon de oro', 1500)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product"data-nombre="Pulsera de amor eterno" data-categoria="pulsera">
+      <img src="coleccion/corazon plata.png" alt="Pulsera  Corazon de Plata">
+      <h2> Corazon de Plata</h2>
+      <p>$780</p>
+      <button class="info-button" onclick="addToCart('Pulsera  Corazon de Plata', 780)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product" data-nombre="Pulsera de amor eterno" data-categoria="pulsera">
+      <img src="coleccion/estrella.png" alt="Pulsera con charm de estrella en plata">
+      <h2>Estrella Plateada</h2>
+      <p>$1120</p>
+      <button class="info-button" onclick="addToCart('Pulsera con charm de estrella en plata', 1120)">Agregar al carrito</button>
+    </div>
+
+ <div class="product" data-nombre="Pulsera de amor eterno" data-categoria="pulsera">
+      <img src="coleccion/perlas en oro.png" alt="Pulsera con Perla Dorada">
+      <h2>Perla Dorada</h2>
+      <p>$1890</p>
+      <button class="info-button" onclick="addToCart('Pulsera con Perla Dorada', 780)">Agregar al carrito</button>
+    </div>
+    
+ <div class="product" data-nombre="Pulsera de amor eterno" data-categoria="pulsera">
+      <img src="coleccion/infinito.png" alt="Pulsera de Infinito">
+      <h2>Infinito</h2>
+      <p>$1350</p>
+      <button class="info-button" onclick="addToCart('Pulsera de Infinito', 780)">Agregar al carrito</button>
+    </div>
+    
+  </div>
+</div>
+
+<div id="aretes" class="section hidden">
+  <h1>Aretes</h1>
+  <div class="container">
+    <div class="product" data-categoria="aretes">
+      <img src="coleccion/floral pearls.png" alt="Aretes de Perlas Florales">
+      <h2>Perlas Florales</h2>
+      <p>$800</p>
+      <button class="info-button" onclick="addToCart('Aretes de Perlas Florales', 800)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product" data-nombre="Agujeros plateados" data-categoria="aretes">
+      <img src="coleccion/silver holes.png" alt="Aretes Agujeros plateados">
+      <h2>Agujeros plateados</h2>
+      <p>$1150</p>
+      <button class="info-button" onclick="addToCart('Aretes Agujeros plateadose', 1150)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product" data-nombre="Flores Doradas" data-categoria="aretes">
+      <img src="coleccion/golden flowers.png" alt="Aretes Flores Doradas">
+      <h2>Flores Doradas</h2>
+      <p>$980</p>
+      <button class="info-button" onclick="addToCart('Aretes Flores Doradas', 980)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product" data-nombre="Corazones Plateados" data-categoria="aretes">
+      <img src="coleccion/silver hearts.png" alt="Aretes Corazones Plateados">
+      <h2>Corazones Plateados</h2>
+      <p>$650</p>
+      <button class="info-button" onclick="addToCart('Aretes Corazones Plateados', 650)">Agregar al carrito</button>
+    </div>
+
+  <div class="product" data-nombre="Perlas luminosas" data-categoria="aretes">
+      <img src="coleccion/snow pearls.png" alt="Aretes Perlas luminosas">
+      <h2>Perlas luminosas</h2>
+      <p>$1300</p>
+      <button class="info-button" onclick="addToCart('Aretes Perlas luminosas', 1150)">Agregar al carrito</button>
+    </div>
+
+<div class="product" data-nombre="Destellos dorados" data-categoria="aretes">
+      <img src="coleccion/golden sparkles.png" alt="Aretes Destellos dorados">
+      <h2>Destellos dorados</h2>
+      <p>$2100</p>
+      <button class="info-button" onclick="addToCart('Destellos dorados', 1150)">Agregar al carrito</button>
+    </div>
+
+  </div>
+</div>
+
+<div id="collares" class="section hidden">
+  <h1>Collares</h1>
+  <div class="container">
+    <div class="product"  data-categoria="collar">
+      <img src="coleccion/golden star.png" alt="Collar Estrella Dorada">
+      <h2>Estrella Dorada</h2>
+      <p>$1850</p>
+      <button class="info-button" onclick="addToCart('Collar Estrella Dorada', 1850)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product"  data-nombre="Perla en Plata" data-categoria="collar">
+      <img src="coleccion/silver pearl.png" alt="Collar de Perla en Plata">
+      <h2>Perla en Plata</h2>
+      <p>$2200</p>
+      <button class="info-button" onclick="addToCart('Collar de Perla en Plata', 2200)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product"  data-nombre="Corazon brillante" data-categoria="collar">
+      <img src="coleccion/bling heaart.png" alt="Collar con Corazon brillante">
+      <h2>Corazon brillante</h2>
+      <p>$1500</p>
+      <button class="info-button" onclick="addToCart('Collar con Corazon brillante', 1500)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product"  data-nombre="Corazon de Oro" data-categoria="collar">
+      <img src="coleccion/golden heart.png" alt="Collar con Corazon de Oro">
+      <h2>Corazon de Oro</h2>
+      <p>$1300</p>
+      <button class="info-button" onclick="addToCart('Collar con Corazon de Oro', 1300)">Agregar al carrito</button>
+    </div>
+
+<div class="product"  data-nombre="Gota de Diamante" data-categoria="collar">
+      <img src="coleccion/silver diamond.png" alt="Collar en formade Gota de Diamante">
+      <h2>Gota de Diamante</h2>
+      <p>$1580</p>
+      <button class="info-button" onclick="addToCart('Collar en formade Gota de Diamante', 1500)">Agregar al carrito</button>
+    </div>
+    
+<div class="product"  data-nombre="Oro Billante" data-categoria="collar">
+      <img src="coleccion/parisine.png" alt="Collar de Oro Billante">
+      <h2>Oro Billante</h2>
+      <p>$1750</p>
+      <button class="info-button" onclick="addToCart('Collar de Oro Billante', 1500)">Agregar al carrito</button>
+    </div>
+    
+  </div>
+</div>
+
+<div id="anillos" class="section hidden">
+  <h1>Anillos</h1>
+  <div class="container">
+    <div class="product"  data-categoria="anillo">
+      <img src="coleccion/thousand diamonds.png" alt="Anillo de diamantes en plata">
+      <h2>Diamantes</h2>
+      <p>$1200</p>
+      <button class="info-button" onclick="addToCart('Anillo de diamantes en plata', 1200)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product"  data-nombre="Piedra corazon" data-categoria="anillo">
+      <img src="coleccion/hanging hrart.png" alt="Anillo suelto con corazon y piedra en oro">
+      <h2>Piedra corazon</h2>
+      <p>$2500</p>
+      <button class="info-button" onclick="addToCart('Anillo suelto con corazon y piedra en oro', 2500)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product"  data-nombre="Plata chunky" data-categoria="anillo">
+      <img src="coleccion/luxury silver.png" alt="Anillo Plata chunky ">
+      <h2>Plata chunky</h2>
+      <p>$1650</p>
+      <button class="info-button" onclick="addToCart('Anillo Plata chunk', 1650)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product"  data-nombre="Abierto Plata" data-categoria="anillo">
+      <img src="coleccion/silver soulmates.png" alt="Anillo Abierto Plata">
+      <h2>Abierto Plata</h2>
+      <p>$1400</p>
+      <button class="info-button" onclick="addToCart('Anillo Abierto Plata', 1400)">Agregar al carrito</button>
+    </div>
+
+  <div class="product"  data-nombre="Oro aperlado" data-categoria="anillo">
+      <img src="coleccion/pearl gold.png" alt="Anillo de oro con perla incrustrada">
+      <h2>Oro aperlado</h2>
+      <p>$1950</p>
+      <button class="info-button" onclick="addToCart('Anillo de oro con perla incrustrada', 1650)">Agregar al carrito</button>
+    </div>
+    
+  <div class="product"  data-nombre="Promesa plateada" data-categoria="anillo">
+      <img src="coleccion/love.png" alt="Anillo de promesa en plata">
+      <h2>Promesa plateada</h2>
+      <p>$2300</p>
+      <button class="info-button" onclick="addToCart('Anillo de promesa en plata', 1650)">Agregar al carrito</button>
+    </div>
+  </div>
+</div>
+
+<div id="dijes" class="section hidden">
+  <h1>Dijes</h1>
+  <div class="container">
+    <div class="product"   data-categoria="dije">
+      <img src="coleccion/golden diamond.png" alt="Dije Gota de Cristal">
+      <h2>Gota de Cristal</h2>
+      <p>$1000</p>
+      <button class="info-button" onclick="addToCart('Dije Gota de Cristal', 1000)">Agregar al carrito</button>
+      </div>
+    
+    <div class="product" data-nombre="Corazon Eterno" data-categoria="dije">
+      <img src="coleccion/infinity love.png" alt="Dije Corazon Eterno">
+      <h2>Corazon Eterno</h2>
+      <p>$850</p>
+      <button class="info-button" onclick="addToCart('Dije Corazon Eterno', 850)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product" data-nombre="Gema Rosada" data-categoria="dije">
+      <img src="coleccion/rose gold gem.png" alt="Dije Gema Rosada">
+      <h2>Gema Rosada</h2>
+      <p>$790</p>
+      <button class="info-button" onclick="addToCart('Dije Gema Rosada', 790)">Agregar al carrito</button>
+    </div>
+    
+    <div class="product" data-nombre="Piedra Celestia" data-categoria="dije">
+      <img src="coleccion/golden pearl.png" alt="Dije Piedra Celestial">
+      <h2>Piedra Celestial</h2>
+      <p>$1100</p>
+      <button class="info-button" onclick="addToCart('Dije Piedra Celestial', 1100)">Agregar al carrito</button>
+    </div>
+
+<div class="product" data-nombre="Flor de Amor" data-categoria="dije">
+      <img src="coleccion/love flower.png" alt="Dije Flor de Amor">
+      <h2>Flor de Amor</h2>
+      <p>$1050</p>
+      <button class="info-button" onclick="addToCart('Dije Flor de Amor', 850)">Agregar al carrito</button>
+    </div>
+
+<div class="product" data-nombre=" Amor Infinito" data-categoria="dije">
+      <img src="coleccion/soulmates heart.png" alt="Dije Amor Infinito">
+      <h2>Amor Infinito</h2>
+      <p>$1180</p>
+      <button class="info-button" onclick="addToCart('Dije Amor Infinito', 850)">Agregar al carrito</button>
+    </div>
+  </div>
+</div>
+
+<div id="cartModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeCart()">×</span>
+    <h2>Tu Carrito</h2>
+    <div id="cartItems"></div>
+    <button onclick="openCheckout()">Finalizar compra</button>
+
+</div>
+
+</div>
+
+<div id="checkoutModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeCheckout()">×</span>
+    <h2>Finalizar Compra</h2>
+    <input type="text" placeholder="Nombre completo">
+    <input type="text" placeholder="Dirección de envío">
+    <input type="text" placeholder="Ciudad y Código Postal">
+    <select>
+      <option>Método de pago</option>
+      <option>Tarjeta de crédito</option>
+      <option>PayPal</option>
+      <option>Transferencia bancaria</option>
+    </select>
+    <button onclick="confirmPurchase()">Confirmar Pedido</button>
+  </div>
+</div>
+
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeLogin()">×</span>
+    <h2>Mi Cuenta</h2>
+    <input type="text" id="userEmail" placeholder="Correo electrónico">
+    <input type="password" id="userPassword" placeholder="Contraseña">
+    <button onclick="alert('Inicio de sesión exitoso (demo)')">Iniciar Sesión</button>
+    <button onclick="alert('Función de crear cuenta próximamente')">Crear Cuenta</button>
+  </div>
+</div>
+
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeContact()">×</span>
+    <h2>Contáctanos</h2>
+    <p>¡Síguenos en nuestras redes sociales o escríbenos!</p>
+    <div class="social-links">
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="mailto:contacto@stelllumierre.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+
+</div>
+
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeAbout()">×</span>
+    <h2>Conócenos</h2>
+    <p>
+      En <strong>Stelly Lumière Paris</strong> creemos que cada joya cuenta una historia. 
+      Nacimos con la visión de capturar la luz, la elegancia y la feminidad que inspiran a las mujeres modernas. 
+      Nuestros diseños fusionan el arte parisino con el brillo eterno de las estrellas, creando piezas únicas que reflejan sofisticación, belleza y autenticidad.<br><br>
+      Cada creación es elaborada con atención al detalle, materiales de alta calidad y un toque artesanal. 
+      En Stelly Lumière, la joyería no solo adorna: ilumina.
+    </p>
+  </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>STELLY LUMIÈRE</h4>
+            <p>Joyas Parisinas de Lujo</p>
+        </div>
+        <div class="footer-section">
+            <h4>INFORMACIÓN</h4>
+            <a href="#" onclick="openAbout()">Sobre Nosotros</a>
+            <a href="#" onclick="openContact()">Contáctanos</a>
+            <a href="#">Términos y Condiciones</a>
+        </div>
+       
+    </div>
+    <div class="copyright">
+        <p>Hecho con <i class="fas fa-heart"></i> en París. &copy; 2025 Stelly Lumière Paris. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
