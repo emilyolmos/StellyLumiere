@@ -744,6 +744,31 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   goHome();
 });
+    function openAbout() {
+  document.getElementById('aboutModal').style.display = 'block';
+}
+
+function openContact() {
+  document.getElementById('contactModal').style.display = 'block';
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+
+// Cerrar modal al hacer clic fuera del contenido
+window.onclick = function(event) {
+  const modals = ['aboutModal', 'contactModal'];
+  modals.forEach(id => {
+    const modal = document.getElementById(id);
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  });
+}
+function openTerms() {
+  document.getElementById('termsModal').style.display = 'block';
+}
 </script>
 
 
@@ -1240,15 +1265,57 @@ document.addEventListener('DOMContentLoaded', () => {
             <h4>INFORMACIÓN</h4>
             <a href="#" onclick="openAbout()">Sobre Nosotros</a>
             <a href="#" onclick="openContact()">Contáctanos</a>
-            <a href="#">Términos y Condiciones</a>
+             <a onclick="openTerms()">Términos y Condiciones</a>
         </div>
+        
        
     </div>
     <div class="copyright">
         <p>Hecho con <i class="fas fa-heart"></i> en París. &copy; 2025 Stelly Lumière Paris. Todos los derechos reservados.</p>
     </div>
 </footer>
+    <!-- Modal Sobre Nosotros -->
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+    <h2>Sobre Nosotros</h2>
+    <p>Aquí va la información sobre tu empresa...</p>
+  </div>
+</div>
+
+<!-- Modal Contáctanos -->
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('contactModal')">&times;</span>
+    <h2>Contáctanos</h2>
+    <p>Aquí va la información de contacto...</p>
+  </div>
+</div>
+<div id="termsModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal('termsModal')">×</span>
+    <h2>Términos y Condiciones</h2>
+    <p>
+  
+
+Bienvenido a Stelly Lumière. Al usar nuestro sitio web, aceptas los siguientes términos:
+
+Uso del sitio: Puedes navegar y usar nuestro contenido de manera legal y responsable.
+
+Propiedad: Todo el contenido (textos, imágenes, diseños) es propiedad de Stelly Lumière y no puede copiarse sin permiso.
+
+Enlaces externos: No nos hacemos responsables del contenido de sitios a los que enlazamos.
+
+Limitación de responsabilidad: No garantizamos que el sitio esté siempre disponible ni libre de errores; no somos responsables por daños derivados de su uso.
+
+Cambios: Podemos actualizar estos términos en cualquier momento; los cambios entran en vigor al publicarse.
+
+Ley aplicable: Estos términos se rigen por las leyes de México, y cualquier disputa se resolverá en los tribunales de Ciudad de México.
+    </p>
+  </div>
+</div>
 
 
 </body>
 </html>
+
